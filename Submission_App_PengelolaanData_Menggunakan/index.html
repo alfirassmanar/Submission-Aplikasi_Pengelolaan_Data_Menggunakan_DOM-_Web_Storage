@@ -1,0 +1,111 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aplikasi Pengelolaan Data Buku</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <style>
+        #bookForm {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #bookForm table {
+            width: 100%;
+        }
+
+        #bookForm table td {
+            padding: 10px 0;
+        }
+
+        #bookForm table td label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #bookForm table td input[type="text"],
+        #bookForm table td input[type="date"],
+        #bookForm table td input[type="checkbox"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #bookForm table td button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #bookForm table td button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="bookshelf" id="readingList">
+                    <h2>Belum Selesai Dibaca :</h2>
+                    <ul class="book-list" id="unfinishedBooks"></ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="bookshelf" id="finishedList">
+                    <h2>Selesai Dibaca :</h2>
+                    <ul class="book-list" id="finishedBooks"></ul>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <form id="bookForm">
+            <table>
+                <tr>
+                    <td><label for="title">Judul:</label></td>
+                    <td><input type="text" id="title" required></td>
+                </tr>
+                <tr>
+                    <td><label for="author">Penulis:</label></td>
+                    <td><input type="text" id="author" required></td>
+                </tr>
+                <tr>
+                    <td><label for="year">Tahun:</label></td>
+                    <td><input type="date" id="year" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="isFinished">Selesai Dibaca:</label></td>
+                    <td><input type="checkbox" id="isFinished"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Tambah Buku</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+
+        <script>
+            const yearInput = document.getElementById('year');
+            const today = new Date();
+            const formattedDate = today.toISOString().substr(0, 10); 
+            yearInput.value = formattedDate;
+        </script>
+
+        <script src="./src/js.js"></script>
+    </body>
+    </html>
